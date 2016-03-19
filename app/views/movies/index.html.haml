@@ -15,7 +15,7 @@
               = link_to movie, method: :delete, data: { confirm: 'Are you sure?' } do
                 %i.material-icons delete
       .collapsible-body
-        - movie.shows.each do |show|
+        - movie.upcoming_shows.each do |show|
           .row
             .col.s6.m4.l3
               = show.date_time.strftime(format='%A, %B %-d')
@@ -23,9 +23,12 @@
               = show.date_time.strftime(format='%l:%M %P')
             .col.s12.m4.l6
               = show.auditorium.name
+        = link_to "View All", movie_shows_path(movie)
+        %br
         = link_to new_movie_show_path(movie) do
-          %i.material-icons.small.left add_circle
-          %h5 Add Show
+          %h5
+            %i.material-icons.small add_circle
+            Add Show
 
 = link_to new_movie_path do
   %i.material-icons.small.left add_circle

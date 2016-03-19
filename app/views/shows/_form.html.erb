@@ -1,4 +1,4 @@
-<%= form_for(@show) do |f| %>
+<%= form_for([@movie, @show]) do |f| %>
   <% if @show.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@show.errors.count, "error") %> prohibited this show from being saved:</h2>
@@ -20,16 +20,12 @@
     <%= f.number_field :ticket_price %>
   </div>
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.datetime_select :time %>
+    <%= f.label :'date_time' %><br>
+    <%= f.datetime_select :'date_time' %>
   </div>
   <div class="field">
     <%= f.label :auditorium %><br>
     <%= f.text_field :auditorium %>
-  </div>
-  <div class="field">
-    <%= f.label :references %><br>
-    <%= f.text_field :references %>
   </div>
   <div class="actions">
     <%= f.submit %>

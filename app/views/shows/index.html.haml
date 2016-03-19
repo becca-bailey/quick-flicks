@@ -1,0 +1,18 @@
+%h2= @movie.title
+
+- @movie.shows.each do |show|
+  .row
+    .col.s8.m5
+      = show.date_time.strftime(format='%A, %B %-d | %l:%M %P')
+    .col.s8.m4.l5
+      = show.auditorium.name
+    .col.s4.m3.l2
+      .icons.right
+        = link_to edit_movie_show_path(@movie, show) do
+          %i.material-icons mode_edit
+        = link_to movie_show_path(@movie, show), method: :delete, data: { confirm: 'Are you sure?' } do
+          %i.material-icons delete
+= link_to new_movie_show_path(@movie) do
+  %h5
+    %i.material-icons.small add_circle
+    Add Show

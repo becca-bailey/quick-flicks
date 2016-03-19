@@ -1,28 +1,22 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy]
 
-  # GET /shows
-  # GET /shows.json
   def index
-    @shows = Show.all
+    @movie = Movie.find(params[:movie_id])
+    @shows = @movie.shows
   end
 
-  # GET /shows/1
-  # GET /shows/1.json
   def show
   end
 
-  # GET /shows/new
   def new
-    @show = Show.new
+    @movie = Movie.find(params[:movie_id])
+    @show = @movie.shows.new
   end
 
-  # GET /shows/1/edit
   def edit
   end
 
-  # POST /shows
-  # POST /shows.json
   def create
     @show = Show.new(show_params)
 
