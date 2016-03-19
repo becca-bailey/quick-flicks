@@ -1,0 +1,17 @@
+%h2.center-align Now Playing
+- @current.each do |movie|
+  .row
+    - if movie.image_url
+      .col.s12.m6.l3
+        .movie-img
+          = image_tag movie.image_url, class: "z-depth-1"
+      .col.s12.m6.l9
+        %h4= movie.title
+        %p= movie.description
+        = link_to movie_shows_path(movie) do
+          %h5 Showtimes &#10095;&#10095;
+
+    - else
+      .col.s12
+        %h4= movie.title
+        %p= movie.description

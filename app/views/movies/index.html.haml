@@ -1,0 +1,32 @@
+%h2.center-align Movies
+%ul.collapsible{:'data-collapsible' => 'accordion'}
+  - @movies.each do |movie|
+    %li
+      .collapsible-header
+        .row
+          .col.s8.m9.l10
+            %h5
+              %i.material-icons.left.medium expand_more
+              = movie.title
+          .col.s4.m3.l2
+            .icons.right
+              = link_to edit_movie_path(movie) do
+                %i.material-icons mode_edit
+              = link_to movie, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.material-icons delete
+      .collapsible-body
+        - movie.shows.each do |show|
+          .row
+            .col.s6.m4.l3
+              = show.date_time.strftime(format='%A, %B %-d')
+            .col.s6.m4.l3
+              = show.date_time.strftime(format='%l:%M %P')
+            .col.s12.m4.l6
+              = show.auditorium.name
+        = link_to new_movie_show_path(movie) do
+          %i.material-icons.small.left add_circle
+          %h5 Add Show
+
+= link_to new_movie_path do
+  %i.material-icons.small.left add_circle
+  %h5 Add Movie

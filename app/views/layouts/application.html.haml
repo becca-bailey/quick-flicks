@@ -1,0 +1,34 @@
+<!!!DOCTYPE html>
+%html
+  %head
+    %title QuickFlicks
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Codystar|Material+Icons|Lato'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      %header.row
+        %nav
+          .col.s10
+            = link_to root_path do
+              %h1.left Quick Flicks
+          .col.s2
+            %a{:href => '#', :'data-activates' => 'nav-menu', :'data-contstrainwidth' => 'false', :'data-beloworigin' => 'true', :class => 'dropdown-button right'}
+              %i.material-icons menu
+            %ul.dropdown-content#nav-menu
+              %li test
+              %li test again
+      %main.z-depth-1
+        %p#notice= notice 
+        = yield
+
+    -# <div class="nav-wrapper">
+    -#   <a href="#!" class="brand-logo">Logo</a>
+    -#   <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    -#   <ul class="right hide-on-med-and-down">
+    -#     <li><a href="sass.html">Sass</a></li>
+    -#     <li><a href="badges.html">Components</a></li>
+    -#     <li><a href="collapsible.html">Javascript</a></li>
+    -#     <li><a href="mobile.html">Mobile</a></li>
+    -#   </ul>

@@ -1,0 +1,26 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.movie-img {
+  overflow: hidden;
+  padding: 2em;
+}
+
+.collapsible {
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  box-shadow: none !important;
+}
+
+.collapsible-body {
+  border-bottom: none !important;
+}
+
+.collapsible-header {
+  background-color: transparent !important;
+  border-bottom: none !important;
+  box-shadow: none;
+}

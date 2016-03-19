@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @auditorium.name %>
+</p>
+
+<p>
+  <strong>Seating capacity:</strong>
+  <%= @auditorium.seating_capacity %>
+</p>
+
+<%= link_to 'Edit', edit_auditorium_path(@auditorium) %> |
+<%= link_to 'Back', auditoria_path %>
